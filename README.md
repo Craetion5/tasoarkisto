@@ -15,3 +15,4 @@ Pelikenttien jakaminen on foorumin keskeinen ominaisuus. Sisäänkirjautuneet k�
 Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautuneet käyttäjät voivat kommentoida ja arvostella niitä. Tasoja voi selata ja etsiä esimerkiksi julkaisuajan, nimen ja tagien perusteella.
 
 [Projekti Herokussa](https://mazelevelforum.herokuapp.com/)
+
