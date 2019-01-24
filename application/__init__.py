@@ -9,4 +9,6 @@ db = SQLAlchemy(app)
 
 from application import views
 
+from application.submissions import models
+
 db.create_all()
