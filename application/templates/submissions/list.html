@@ -1,17 +1,10 @@
 {% extends "layout.html" %}
 
 {% block body %}
-  <table>
-    <tr>
-      <th>Submission</th>
-      <th>Code</th>
-    </tr>
-    {% for submission in submissions %}
-    <tr>
-      <td>{{ submission.name }}</td>
-      <td>{{ submission.code }}</td>
-    </tr>
+<h1>Level submissions</h1>
+    {% for submission in submissions %} 
+      <b><td>{{ submission.name }}</td><b><br>
+      <textarea style="resize:none" rows="1" cols="50" readonly>{{ submission.code }}</textarea><br><br>
     {% endfor %}
-  </table>
 {% endblock %}
 

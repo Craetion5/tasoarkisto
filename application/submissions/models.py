@@ -11,4 +11,4 @@ class Submission(db.Model):
 
     def __init__(self, name):
         self.name = name
-        self.code = name
+        self.code = "Adding code will be implemented later."

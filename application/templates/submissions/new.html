@@ -1,8 +1,12 @@
 {% extends "layout.html" %}
-  
+
 {% block body %}
+<h1>Submit a new level</h1>
 <form method="POST" action="{{ url_for('submissions_create') }}">
-  <input type="text" name="name"/>
-  <input type="submit" value="Submit a level"/>
+  <td><b>Name:<b></td>
+  <input type="text" name="name"/><br><br>
+  <td><b>Code:<b></td>
+  <input type="text" name="code" disabled/><br><br>
+  <input type="submit" value="Submit"/>
 </form>
 {% endblock %}
