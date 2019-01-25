@@ -19,7 +19,7 @@
 
 ### Sisäänkirjautuneena voin...
 
-* julkaista tasoja
+* julkaista tasoja (syötetään nimi, tasokoodi ja mahdollinen kuvaus)
 * lisätä tageja omiin tasopostauksiin
 * muokata ja poistaa omia tasopostauksia
 * kommentoida ja arvostella tasoja
