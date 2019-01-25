@@ -9,6 +9,6 @@ class Submission(db.Model):
     name = db.Column(db.String(144), nullable=False)
     code = db.Column(db.String(1440), nullable=False)
 
-    def __init__(self, name, code):
+    def __init__(self, name):
         self.name = name
-        self.code = code
+        self.code = name

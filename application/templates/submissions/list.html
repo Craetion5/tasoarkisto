@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block body %}
+  <table>
+    <tr>
+      <th>Submission</th>
+      <th>Code</th>
+    </tr>
+    {% for submission in submissions %}
+    <tr>
+      <td>{{ submission.name }}</td>
+      <td>{{ submission.code }}</td>
+    </tr>
+    {% endfor %}
+  </table>
+{% endblock %}
+
