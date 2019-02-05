@@ -3,10 +3,51 @@
 {% block body %}
 <h1>Submit a new level</h1>
 <form method="POST" action="{{ url_for('submissions_create') }}">
-  <td><b>Name:<b></td>
-  <input type="text" name="name"/><br><br>
-  <td><b>Code:<b></td>
-  <input type="text" name="code" disabled/><br><br>
-  <input type="submit" value="Submit"/>
+
+  <tr>
+    <td>
+      <b>{{ form.name.label }}</b>
+    </td>
+    <td>
+      {{ form.name }}
+    </td>
+      <td>
+  <ul>
+	    {% for error in form.name.errors %}
+	    <li>{{ error }}</li>
+	    {% endfor %}
+    </ul>
+  </td>
+  </tr></br>
+  <tr>
+    <td>
+      <b>{{ form.code.label }}</b>
+    </td>
+    <td>
+      {{ form.code }}
+    </td>
+    <td>
+        <ul>
+            {% for error in form.code.errors %}
+            <li>{{ error }}</li>
+            {% endfor %}
+          </ul>
+        </td>
+  </tr></br>
+  <tr>
+    <td colspan="2">
+      <input type="submit" value="Submit" />
+    </td>
+  </tr></br></br>
+
 </form>
 {% endblock %}
+
+<!--
+  old form
+<td><b>Name:<b></td>
+  <input type="text" name="name" /><br><br>
+  <td><b>Code:<b></td>
+  <input type="text" name="code" disabled /><br><br>
+  <input type="submit" value="Submit" />
+  -->

@@ -9,6 +9,9 @@ class Submission(db.Model):
     name = db.Column(db.String(144), nullable=False)
     code = db.Column(db.String(1440), nullable=False)
 
+    account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
+                           nullable=False)
+
     def __init__(self, name):
         self.name = name
         self.code = "Adding code will be implemented later."
