@@ -1,6 +1,11 @@
 {% extends "layout.html" %}
 
 {% block body %}
+<style>
+  td {
+      padding: 10px;
+    }
+    </style>
 <form method="POST" action="{{ url_for('auth_create') }}">
   <table>
     <tr>
