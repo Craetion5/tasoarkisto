@@ -1,5 +1,9 @@
 ## Tasofoorumi
 
+### TESTITUNNUS:
+#### Käyttäjätunnus: test
+#### Salasana: 12345678
+
 Tavoitteena on luoda foorumi [aikaisemmin ohjelmoimani pelin](https://github.com/Craetion5/otm-harjoitustyo) tasojen jakamista varten. Peli mahdollistaa tasojen muokkaamisen, tallentamisen tekstimuotoiseksi koodiksi ja lataamisen tekstimuotoisesta koodista. Foorumilla olisi tarkoitus olla seuraavia toiminnallisuuksia:
 
 #### Käyttäjäsysteemi
