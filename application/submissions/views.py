@@ -2,6 +2,7 @@ from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.submissions.models import Submission
 from application.submissions.forms import SubmissionForm
+from application.auth.models import User
 from flask_login import login_required, current_user
 
 @app.route("/submissions", methods=["GET"])
@@ -24,6 +25,7 @@ def submissions_create():
 
     t = Submission(form.name.data)
     t.code = form.code.data
+    t.description = form.description.data
     t.account_id = current_user.id
 
     db.session().add(t)
@@ -35,3 +37,7 @@ def submissions_create():
     #db.session().commit()
   
     return redirect(url_for("submissions_index"))
+
+@app.route("/submissions/level", methods=["GET"])
+def submissions_view():
+    return render_template("submissions/level.html", submission = Submission.query.first())

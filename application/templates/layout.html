@@ -31,9 +31,9 @@
 
         {% if current_user.is_authenticated %}
         <p>
-          Kirjautunut nimellä {{ current_user.name }}. <a href="{{ url_for('auth_logout') }}">Kirjaudu ulos</a> </p>
+          <font color="Thistle">Logged in with {{ current_user.name }}.&nbsp;&nbsp;</font> <a style="color:sandybrown" href="{{ url_for('auth_logout') }}">Logout</a> </p>
         {% else %}
-        <a href="{{ url_for('auth_login') }}">Login</a>&nbsp&nbsp&nbsp<a href="{{ url_for('auth_form') }}">New user</a>
+        <a style="color:sandybrown" href="{{ url_for('auth_login') }}">Login</a>&nbsp;&nbsp;&nbsp;<a style="color:sandybrown" href="{{ url_for('auth_form') }}">New user</a>
         {% endif %}
 
       </div>

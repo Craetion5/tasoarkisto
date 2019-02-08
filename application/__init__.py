@@ -21,6 +21,8 @@ from application.submissions import views
 from application.auth import models 
 from application.auth import views
 
+from application.comments import models 
+
 #login
 from application.auth.models import User
 from os import urandom

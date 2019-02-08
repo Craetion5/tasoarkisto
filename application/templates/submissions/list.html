@@ -2,9 +2,9 @@
 
 {% block body %}
 <h1>Level submissions</h1>
-    {% for submission in submissions %} 
-      <b><td>{{ submission.name }}</td><b><br>
-      <textarea style="resize:none" rows="1" cols="50" readonly>{{ submission.code }}</textarea><br><br>
-    {% endfor %}
+{% for submission in submissions %}
+<!-- href="{{ url_for('submissions_view') }} " -->
+<b><a>{{submission.name}}</a></b>&nbsp;by user <b>#{{submission.account_id}}</b></br>
+<textarea style="resize:none" rows="1" cols="50" readonly>{{ submission.code }}</textarea></br>{{submission.description}}</br></br>
+{% endfor %}
 {% endblock %}
-

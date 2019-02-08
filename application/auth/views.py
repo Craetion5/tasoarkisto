@@ -37,9 +37,17 @@ def auth_form():
 def auth_create():
     form = AuthForm(request.form)
 
-    a = User(form.name.data, form.username.data, form.password.data)
+
+    if not form.validate():
+        return render_template("auth/new.html", form = form)
+
+    user = User.query.filter_by(username=form.username.data).first()
+    if user is None:
+        a = User(form.name.data, form.username.data, form.password.data)
   
-    db.session().add(a)
-    db.session().commit()
+        db.session().add(a)
+        db.session().commit()
   
-    return redirect(url_for("auth_login"))
+        return redirect(url_for("auth_login"))
+    return render_template("auth/new.html", form = form,
+                           errore = "Username " + user.username + " already in use")

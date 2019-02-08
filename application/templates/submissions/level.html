@@ -1,0 +1,7 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h1>{{submission.name}}&nbsp;by&nbsp;{{submission.account_id}}</h1></br>
+<textarea style="resize:none" rows="2" cols="50" readonly>{{ submission.code }}</textarea>
+</br></br>{{submission.description}}
+{% endblock %}
