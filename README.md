@@ -1,5 +1,9 @@
 ## Tasofoorumi
 
+### TESTITUNNUS:
+#### Käyttäjätunnus: test
+#### Salasana: 12345678
+
 Tavoitteena on luoda foorumi [aikaisemmin ohjelmoimani pelin](https://github.com/Craetion5/otm-harjoitustyo) tasojen jakamista varten. Peli mahdollistaa tasojen muokkaamisen, tallentamisen tekstimuotoiseksi koodiksi ja lataamisen tekstimuotoisesta koodista. Foorumilla olisi tarkoitus olla seuraavia toiminnallisuuksia:
 
 #### Käyttäjäsysteemi
@@ -16,6 +20,6 @@ Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautunee
 
 [Projekti Herokussa](https://mazelevelforum.herokuapp.com/)
 
-[Tietokantahahmotelma](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/tietokantahahmotelma.md)
+[Tietokantahahmotelma](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/tietokantakaavio.png)
 
 [User storyjä](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/user_storyt.md)
