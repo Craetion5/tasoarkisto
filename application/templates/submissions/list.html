@@ -3,7 +3,7 @@
 {% block body %}
 <h1>Level submissions</h1>
 {% for submission in submissions %}
-<b><a href="{{ url_for('submissions_view', submission_id=submission.id) }} ">{{submission.name}}</a>({{ submission.id }})</b></br>
+<b><a href="{{ url_for('submissions_view', submission_id=submission.id) }} ">{{submission.name}}</a></b></br>
 <textarea style="resize:none" rows="1" cols="50" readonly>{{ submission.code }}</textarea></br></br>
 {% endfor %}
 {% endblock %}
