@@ -1,7 +1,9 @@
 from application import app, db
 from flask import redirect, render_template, request, url_for
 from application.submissions.models import Submission
+from application.comments.models import Comment
 from application.submissions.forms import SubmissionForm
+from application.comments.forms import CommentForm
 from application.auth.models import User
 from flask_login import login_required, current_user
 
@@ -38,6 +40,17 @@ def submissions_create():
   
     return redirect(url_for("submissions_index"))
 
-@app.route("/submissions/level", methods=["GET"])
-def submissions_view():
-    return render_template("submissions/level.html", submission = Submission.query.first())
+@app.route("/submissions/level/<submission_id>", methods=["GET"])
+def submissions_view(submission_id):
+    s = Submission.query.get(submission_id)
+    u = User.query.get(s.account_id)
+    form = CommentForm(request.form)
+    return render_template("submissions/level.html", submission = s, account = u, form=form, comments = Comment.query.filter_by(submission_id=submission_id), comments2 = Comment.get_comments(subid = submission_id))
+
+@app.route("/submissions/level/<submission_id>", methods=["DELETE"])
+def submissions_delete(submission_id):
+    lvl = Submission.query.get(submission_id)
+
+    db.session.delete(lvl)
+    db.session.commit()
+    return redirect(url_for('index'))

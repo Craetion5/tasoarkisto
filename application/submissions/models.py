@@ -10,7 +10,7 @@ class Submission(Base):
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
-    comments = db.relationship("Comment", backref='submission', lazy=True)
+    comments = db.relationship("Comment", backref='submission', lazy=True, cascade="delete")
 
     def __init__(self, name):
         self.name = name
@@ -36,3 +36,8 @@ class Submission(Base):
         #    response.append(row[0])
 
         #return response[0]
+
+#    @staticmethod
+#    def delete_submission(id):
+#        stmt = text("DELETE FROM Submission WHERE id = 1")
+#        db.engine.execute(stmt)

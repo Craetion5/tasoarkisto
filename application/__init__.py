@@ -17,6 +17,7 @@ from application import views
 
 from application.submissions import models
 from application.submissions import views
+from application.comments import views
 
 from application.auth import models 
 from application.auth import views

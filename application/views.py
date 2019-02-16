@@ -2,6 +2,7 @@ from flask import render_template
 from application import app
 from application.submissions.models import Submission
 from application.auth.models import User
+from application.comments.models import Comment
 
 @app.route("/")
 def index():

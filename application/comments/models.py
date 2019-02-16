@@ -15,3 +15,12 @@ class Comment(Base):
   
     def get_id(self):
         return self.id
+
+    @staticmethod
+    def get_comments(subid):
+        stmt = text("select comment.text, account.username from comment left join account on account.id = comment.account_id where (comment.submission_id is :subid)").params(subid=subid)
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"text":row[0], "account":row[1]})
+        return response
