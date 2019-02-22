@@ -16,4 +16,4 @@ def comments_create(submission_id):
         comment.submission_id = submission_id
         db.session().add(comment)
         db.session().commit()
-        return redirect(url_for('submissions_view', submission_id=submission_id))
+    return redirect(url_for('submissions_view', submission_id=submission_id))

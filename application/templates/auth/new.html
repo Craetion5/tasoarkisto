@@ -32,9 +32,9 @@
       </td>
       <td>
         <ul>
-            <td style="color:red">
-            {{ errore }}
-            </td>
+            <div style="color:red">
+                {{ errore }}
+            </div>
           {% for error in form.username.errors %}
           <li>{{ error }}</li>
           {% endfor %}

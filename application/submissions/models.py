@@ -7,6 +7,7 @@ class Submission(Base):
     name = db.Column(db.String(144), nullable=False)
     code = db.Column(db.String(1440), nullable=False)
     description = db.Column(db.String(1440), nullable=False)
+    featured = db.Column(db.Boolean(), nullable=False)
 
     account_id = db.Column(db.Integer, db.ForeignKey('account.id'),
                            nullable=False)
@@ -14,7 +15,8 @@ class Submission(Base):
 
     def __init__(self, name):
         self.name = name
-        self.code = "code..?"
+        self.code = "code isn't set here"
+        self.featured = False
 
     @staticmethod
     def count_submissions():
@@ -26,11 +28,11 @@ class Submission(Base):
 
         return response[0]
 
-    @staticmethod
-    def find_submission():
-        stmt = text("SELECT * FROM Submission WHERE id = 1")
-        res = db.engine.execute(stmt)
-        return res;
+    #@staticmethod
+    #def find_submission():
+        #stmt = text("SELECT * FROM Submission WHERE id = 1")
+        #res = db.engine.execute(stmt)
+        #return res;
         #response = []
         #for row in res:
         #    response.append(row[0])

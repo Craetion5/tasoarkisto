@@ -9,6 +9,7 @@ class User(Base):
     name = db.Column(db.String(144), nullable=False)
     username = db.Column(db.String(144), nullable=False)
     password = db.Column(db.String(144), nullable=False)
+    admin = db.Column(db.Boolean(), nullable=False)
 
     submissions = db.relationship("Submission", backref='account', lazy=True)
     comments = db.relationship("Comment", backref='account', lazy=True)
@@ -17,6 +18,7 @@ class User(Base):
         self.name = name
         self.username = username
         self.password = password
+        self.admin = True
   
     def get_id(self):
         return self.id

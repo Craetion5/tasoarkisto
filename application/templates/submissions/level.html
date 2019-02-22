@@ -1,16 +1,30 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h1>{{submission.name}}&nbsp;by&nbsp;{{account.name}}</h1></br>
+<h1><b>{{submission.name}}</b>&nbsp;by&nbsp;<a href="{{ url_for('auth_view', account_id=submission.account_id) }}">{{account.name}}</a>{% if featured %}&nbsp;☆{% endif %}</h1></br>
 <textarea style="resize:none" rows="2" cols="50" readonly>{{ submission.code }}</textarea>
 </br></br>
 <p>
 {{submission.description}}
 </p></br>
+
+{% if canDelete %}
+<form method="POST" action="{{ url_for('submissions_delete', submission_id=submission.id) }}">
+  <input type="submit" value="Delete this level"/>
+</form></br>
+
+{% if canFeature %}
+<form method="POST" action="{{ url_for('submissions_feature', submission_id=submission.id) }}">
+  <input type="submit" value={{featureText}}/>
+</form></br>
+{% endif %}{% endif %}
+
+{% if hasComments %}
 <h3>Comments:</h3></br>
+{% endif %}
 
   {% for c in comments2 %}
-   <a><b>{{c.account}}</b>: {{c.text}}</a></br></br>
+   <a href="{{ url_for('auth_view', account_id=c.account_id) }}"><b>{{c.account}}</b></a><a>: {{c.text}}</a></br></br>
   {% endfor %}
 
 </br><h4>Leave a comment:</h4>

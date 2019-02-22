@@ -9,7 +9,11 @@ from flask_login import login_required, current_user
 
 @app.route("/submissions", methods=["GET"])
 def submissions_index():
-    return render_template("submissions/list.html", submissions = Submission.query.all())
+    return render_template("submissions/list.html", submissions = Submission.query.all(), header = 'Level submissions')
+
+@app.route("/submissions/featured", methods=["GET"])
+def submissions_featured():
+    return render_template("submissions/list.html", submissions = Submission.query.filter_by(featured=True), header = 'Featured levels')
 
 @app.route("/submissions/new/")
 @login_required
@@ -45,12 +49,48 @@ def submissions_view(submission_id):
     s = Submission.query.get(submission_id)
     u = User.query.get(s.account_id)
     form = CommentForm(request.form)
-    return render_template("submissions/level.html", submission = s, account = u, form=form, comments = Comment.query.filter_by(submission_id=submission_id), comments2 = Comment.get_comments(subid = submission_id))
 
-@app.route("/submissions/level/<submission_id>", methods=["DELETE"])
+    canDelete = False
+    if current_user.is_authenticated:
+        if s.account_id == current_user.id or current_user.admin == True:
+            canDelete = True
+
+    hasComments = True
+    if Comment.query.filter_by(submission_id=submission_id).first() is None:
+        hasComments = False
+
+    canFeature = False
+    if current_user.is_authenticated:
+        if current_user.admin == True:
+            canFeature = True
+
+    featureText = 'Feature '
+    featured = False
+    if s.featured == True:
+        featureText = 'Unfeature '
+        featured = True
+
+    return render_template("submissions/level.html", submission = s, account = u, form=form, comments = Comment.query.filter_by(submission_id=submission_id), comments2 = Comment.get_comments(subid = submission_id), canDelete = canDelete, hasComments = hasComments, canFeature = canFeature, featureText = featureText, featured = featured)
+
+@app.route("/submissions/level/<submission_id>", methods=["POST"])
+@login_required
 def submissions_delete(submission_id):
     lvl = Submission.query.get(submission_id)
 
-    db.session.delete(lvl)
-    db.session.commit()
-    return redirect(url_for('index'))
+    if lvl.account_id == current_user.id or current_user.admin == True:
+        db.session.delete(lvl)
+        db.session.commit()
+        return redirect(url_for('index'))
+
+@app.route("/submissions/feature/<submission_id>", methods=["POST"])
+@login_required
+def submissions_feature(submission_id):
+    if current_user.admin == True:
+        s = Submission.query.get(submission_id)
+        if s.featured == True:
+            s.featured = False
+        else:
+            s.featured = True
+        db.session().commit()
+  
+    return redirect(url_for('submissions_view', submission_id=submission_id))

@@ -20,8 +20,11 @@
     <div class="collapse navbar-collapse" id="navbarCollapse">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('submissions_index') }} ">View submitted levels</a>
+          <a class="nav-link" href="{{ url_for('submissions_index') }} ">View aĺl levels</a>
         </li>
+        <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('submissions_featured') }} ">View featured levels</a>
+          </li>
         <li class="nav-item">
           <a class="nav-link" href="{{ url_for('submissions_form') }} ">Submit a level</a>
         </li>

@@ -5,6 +5,7 @@ from application import app, db
 from application.auth.models import User
 from application.auth.forms import LoginForm
 from application.auth.forms import AuthForm
+from application.submissions.models import Submission
 
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
@@ -51,3 +52,10 @@ def auth_create():
         return redirect(url_for("auth_login"))
     return render_template("auth/new.html", form = form,
                            errore = "Username " + user.username + " already in use")
+
+
+@app.route("/auth/view/<account_id>", methods=["GET"])
+def auth_view(account_id):
+        header = 'Levels by '
+        header += User.query.filter_by(id = account_id).first().username
+        return render_template("submissions/list.html", submissions = Submission.query.filter_by(account_id = account_id), header = header)
