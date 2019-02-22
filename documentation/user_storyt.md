@@ -29,6 +29,11 @@
 * Käyttäjä avaa luomaansa tasoa vastaavan linkin listasta
 * Käyttäjä ohjataan sivulle, jossa hän voi tarkastella tasopostaustaan
 
+### Käyttäjä voi selata yksittäisen käyttäjän tasoja
+* Käyttäjä avaa tasopostauksen
+* Käyttäjä klikkaa linkkiä, jossa näkyy postauksen tekijä
+* Käyttäjä ohjataan sivulle, jossa postauksen tekijän tasot on listattu
+
 ### Pääkäyttäjä voi käyttää erityisvoimiaan
 * Pääkäyttäjä kirjautuu sisään
 * Pääkäyttäjä avaa tasopostauksen
