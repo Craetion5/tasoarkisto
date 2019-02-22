@@ -22,7 +22,7 @@
 
 ### Käyttäjä voi jakaa tason ja tarkastella sitä
 * Käyttäjä painaa nappia "Submit a level"
-* Jos käyttäjä ei ole sisäänkirjautunut, hänet johdetaan kirjautumissivulle
+   * Jos käyttäjä ei ole sisäänkirjautunut, hänet johdetaan kirjautumissivulle
 * Jos käyttäjä on sisäänkirjautunut, hänet johdetaan tasonluontisivulle
 * Käyttäjä syöttää nimen, mahdollisen kuvauksen ja sovelluksella tekemän tason tekstimuotoisen koodin, ja painaa nappia "Submit"
 * Tasopostaus on luotu, ja käyttäjä ohjataan tasoja listaavalle sivulle
