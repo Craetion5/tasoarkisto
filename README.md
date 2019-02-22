@@ -12,11 +12,11 @@ Foorumin käyttäjät voivat luoda tunnuksen, kirjautua sisään ja kirjautua ul
 
 #### Tasojen jakaminen
 
-Pelikenttien jakaminen on foorumin keskeinen ominaisuus. Sisäänkirjautuneet käyttäjät voivat jakaa tasoja tekemällä postauksia, joissa jaetaan tekstimuotoinen tasokoodi, ja annetaan tasolle nimi ja mahdollinen kuvaus. Tavalliset käyttäjät voivat poistaa omia tasopostauksiaan, ja admin-käyttäjät voivat poistaa myös muiden tasoja.
+Pelikenttien jakaminen on foorumin keskeinen ominaisuus. Sisäänkirjautuneet käyttäjät voivat jakaa tasoja tekemällä postauksia, joissa jaetaan tekstimuotoinen tasokoodi, ja annetaan tasolle nimi ja mahdollinen kuvaus. Tavalliset käyttäjät voivat poistaa omia tasopostauksiaan, ja pääkäyttäjät voivat poistaa myös muiden tasoja.
 
 #### Tasojen tarkasteleminen ja etsiminen
 
-Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautuneet käyttäjät voivat jättää niihin kommentteja. Foorumilla on toiminnallisuudet kaikkien tasojen, käyttäjäkohtaisten tasojen ja admin-käyttäjien valitsemien tasojen listaamiseen.
+Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautuneet käyttäjät voivat jättää niihin kommentteja. Foorumilla on toiminnallisuudet kaikkien tasojen, käyttäjäkohtaisten tasojen ja pääkäyttäjien valitsemien tasojen listaamiseen.
 
 [Projekti Herokussa](https://mazelevelforum.herokuapp.com/)
 
