@@ -1,27 +1,10 @@
 # User storyjä
 
-### Käyttäjänä voin selata tasoja...
-* tagien perusteella
-* tykkäysten perusteella
-* julkaisupäivämäärän perusteella
-* käyttäjän perusteella
-
-### Tasoa klikkaamalla näen...
-* tason nimen, kuvauksen ja koodin
-* tason julkaisuajan
-* tason arviot
-* tasoon lisätyt kommentit
-* tason tekijän
-* tason tagit
-
-### Käyttäjänä voin luoda käyttäjätunnuksen syöttämällä nimen ja salasanan.
-* voin kirjautua sisään kyseisen tunnuksen avulla
-
-### Sisäänkirjautuneena voin...
-
-* julkaista tasoja (syötetään nimi, tasokoodi ja mahdollinen kuvaus)
-* lisätä tageja omiin tasopostauksiin
-* muokata ja poistaa omia tasopostauksia
-* kommentoida ja arvostella tasoja
-* luoda tageja
-* kirjautua ulos
+### Käyttäjä voi luoda käyttäjätunnuksen ja käyttää sitä
+* Käyttäjä painaa nappia "New user"
+* Sovellus ohjaa käyttäjätunnuksenluontilomakkeeseen
+* Käyttäjä syöttää nimen, käyttäjätunnuksen ja salasanan, ja painaa nappia "Add new user"
+* Uusi tunnus on luotu, ja käyttäjä ohjataan sisäänkirjautumislomakkeseen
+* Käyttäjä syöttää luodun tunnuksen käyttäjänimen ja salasanan, ja painaa nappia "Login"
+* Käyttäjä ohjataan etusivulle, ja on kirjautunut sisään
+* Käyttäjä voi kirjautua ulos painamalla nappia "Logout"
