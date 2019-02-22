@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 
 {% block body %}
-<h1><b>{{submission.name}}</b>&nbsp;by&nbsp;<a href="{{ url_for('auth_view', account_id=submission.account_id) }}">{{account.name}}</a>{% if featured %}&nbsp;☆{% endif %}</h1></br>
+<h1><b>{{submission.name}}</b>&nbsp;by&nbsp;<a href="{{ url_for('auth_view', account_id=submission.account_id) }}">{{account.username}}</a>{% if featured %}&nbsp;☆{% endif %}</h1></br>
 <textarea style="resize:none" rows="2" cols="50" readonly>{{ submission.code }}</textarea>
 </br></br>
 <p>
