@@ -20,6 +20,6 @@ Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautunee
 
 [Projekti Herokussa](https://mazelevelforum.herokuapp.com/)
 
-[Tietokantahahmotelma](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/tietokantakaavio.png)
+[Tietokantakaavio](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/tietokantakaavio.png)
 
 [User storyjä](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/user_storyt.md)
