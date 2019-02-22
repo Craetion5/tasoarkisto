@@ -12,7 +12,7 @@
 ### Käyttäjä voi selata tasoja
 * Käyttäjä painaa nappia "View all levels"
 * Käyttäjä ohjataan sivulle, jossa on listattu kaikki käyttäjien lähettämät tasot
-* Käyttäjä voi halutessaan kopioida yksittäisen tason koodin suoraan listasta
+   * Käyttäjä voi halutessaan kopioida yksittäisen tason koodin suoraan listasta
 * Käyttäjä voi avata listasta yksittäistä tasoa vastaavan linkin
 * Käyttäjä ohjataan sivulle, jossa hän voi tarkastella tasopostausta
 * Käyttäjä voi lisätä kommentin tasoon syöttämällä sen kommenttilomakkeeseen ja painamalla nappia "Submit"
