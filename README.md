@@ -23,3 +23,5 @@ Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautunee
 [Tietokantakaavio](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/tietokantakaavio.png)
 
 [User storyjä](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/user_storyt.md)
+
+[Asennusohje ja SQL-lauseita](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/ohje.md)
