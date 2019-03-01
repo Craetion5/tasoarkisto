@@ -25,3 +25,12 @@ Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautunee
 [User storyjä ja SQL-lauseita](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/user_storyt.md)
 
 [Asennusohje](https://github.com/Craetion5/tasofoorumi/blob/master/documentation/ohje.md)
+
+### Jatkokehittelyideoita
+
+* tasolistoihin näkyviin tasojen tekijä
+* tasoille tykkäyssysteemi tai tageja
+* kirjautumisen tarkistamisen toteuttaminen järkevämmin
+* käyttäjille omat sivut tasojen listaamisen lisäksi
+* tasojen ja käyttäjien listaamisen lisäksi etsiminen hakusanoilla
+* erillisen pelisovelluksen tasokoodien jakamisen sijaan nettisivustolle voisi koodata javascript-pelin johon luoduissa tasopostauksissa käyttäjät voisivat suoraan pelata kyseisiä tasoja
