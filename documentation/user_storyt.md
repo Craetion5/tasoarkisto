@@ -42,3 +42,65 @@
   * Nappia painamalla taso lisätään pääkäyttäjien valitsemiin tasoihin, jotka saa näkyviin sovelluksen yläpalkin napista "View featured levels"
   * Jos taso on jo valittu, lukee napissa "Unfeature" ja sitä painamalla taso poistuu valittujen tasojen listasta
   
+## SQL CREATE TABLE-lauseet
+
+CREATE TABLE account (
+
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	username VARCHAR(144) NOT NULL, 
+	password VARCHAR(144) NOT NULL, 
+	admin BOOLEAN NOT NULL, 
+	PRIMARY KEY (id), 
+	CHECK (admin IN (0, 1))
+  
+);
+
+CREATE TABLE submission (
+
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	name VARCHAR(144) NOT NULL, 
+	code VARCHAR(1440) NOT NULL, 
+	description VARCHAR(1440) NOT NULL, 
+	featured BOOLEAN NOT NULL, 
+	account_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	CHECK (featured IN (0, 1)), 
+	FOREIGN KEY(account_id) REFERENCES account (id)
+  
+);
+
+CREATE TABLE comment (
+
+	id INTEGER NOT NULL, 
+	date_created DATETIME, 
+	date_modified DATETIME, 
+	text VARCHAR(1440) NOT NULL, 
+	account_id INTEGER NOT NULL, 
+	submission_id INTEGER NOT NULL, 
+	PRIMARY KEY (id), 
+	FOREIGN KEY(account_id) REFERENCES account (id), 
+	FOREIGN KEY(submission_id) REFERENCES submission (id)
+  
+);
+
+## SQL komentoesimerkkejä
+
+Näytä tasopostausten data: `select * from submission;`
+
+Näytä tietyn käyttäjän tasot: `select * from submission where submission.account_id = 1;`
+
+Tee käyttäjästä pääkäyttäjä: `update account set admin = 1 where username = 'test';`
+
+Etsi käyttäjät, joilla on ainakin yksi tasopostaus, laske käyttäjien tasojen määrä ja ryhmittele käyttäjät tasojen määrän mukaan:
+  `
+  select account.username, count (submission.id), account.id from account
+  left join submission on submission.account_id = account.id
+  group by account.id
+  having count(submission.id) != 0
+  order by 0 - count(submission.id)
+  `
