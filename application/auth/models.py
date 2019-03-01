@@ -42,3 +42,12 @@ class User(Base):
 
 
         return response[0]
+
+    @staticmethod
+    def list_users():
+        stmt = text("select account.username, count (submission.id), account.id from account left join submission on submission.account_id = account.id group by account.id having count(submission.id) != 0 order by 0 - count(submission.id)")
+        res = db.engine.execute(stmt)
+        response = []
+        for row in res:
+            response.append({"username":row[0], "levels":row[1], "id":row[2]})
+        return response

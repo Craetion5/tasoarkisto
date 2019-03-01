@@ -1,0 +1,10 @@
+{% extends "layout.html" %}
+
+{% block body %}
+
+<h1>Users who have submitted levels</h1></br>
+{% for u in users %}
+<a href="{{ url_for('auth_view', account_id=u.id) }}"><b>{{u.username}}</b></a><a>: {{u.levels}}</a> levels</br></br>
+{% endfor %}
+
+{% endblock %}

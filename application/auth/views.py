@@ -7,13 +7,13 @@ from application.auth.forms import LoginForm
 from application.auth.forms import AuthForm
 from application.submissions.models import Submission
 
+# login functionality
 @app.route("/auth/login", methods = ["GET", "POST"])
 def auth_login():
     if request.method == "GET":
         return render_template("auth/loginform.html", form = LoginForm())
 
     form = LoginForm(request.form)
-    # mahdolliset validoinnit
 
     user = User.query.filter_by(username=form.username.data, password=form.password.data).first()
     if not user:
@@ -24,16 +24,18 @@ def auth_login():
     login_user(user)
     return redirect(url_for("index"))    
 
+# logout functionality
 @app.route("/auth/logout")
 def auth_logout():
     logout_user()
     return redirect(url_for("index")) 
 
+# template for adding a new user
 @app.route("/auth/new/")
 def auth_form():
     return render_template("auth/new.html", form = AuthForm())
 
-
+# functionality for adding a new user
 @app.route("/auth/", methods=["POST"])
 def auth_create():
     form = AuthForm(request.form)
@@ -53,9 +55,14 @@ def auth_create():
     return render_template("auth/new.html", form = form,
                            errore = "Username " + user.username + " already in use")
 
-
+# viewing levels of an user
 @app.route("/auth/view/<account_id>", methods=["GET"])
 def auth_view(account_id):
         header = 'Levels by '
         header += User.query.filter_by(id = account_id).first().username
         return render_template("submissions/list.html", submissions = Submission.query.filter_by(account_id = account_id), header = header)
+
+# listing users
+@app.route("/auth/list/", methods=["GET"])
+def auth_list():
+        return render_template("auth/userlist.html", users = User.list_users())

@@ -6,6 +6,7 @@ from application.auth.models import User
 from application.comments.models import Comment
 from flask_login import login_required, current_user
 
+# posting a new comment
 @app.route("/comment/<submission_id>", methods=["POST"])
 @login_required
 def comments_create(submission_id):

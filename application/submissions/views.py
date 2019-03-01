@@ -7,19 +7,23 @@ from application.comments.forms import CommentForm
 from application.auth.models import User
 from flask_login import login_required, current_user
 
+# listing all level submissions
 @app.route("/submissions", methods=["GET"])
 def submissions_index():
     return render_template("submissions/list.html", submissions = Submission.query.all(), header = 'Level submissions')
 
+# listing level submissions featured by forum admins
 @app.route("/submissions/featured", methods=["GET"])
 def submissions_featured():
     return render_template("submissions/list.html", submissions = Submission.query.filter_by(featured=True), header = 'Featured levels')
 
+# template for creating a submission
 @app.route("/submissions/new/")
 @login_required
 def submissions_form():
     return render_template("submissions/new.html", form = SubmissionForm())
 
+# functionality for creating a submission
 @app.route("/submissions/", methods=["POST"])
 @login_required
 def submissions_create():
@@ -36,14 +40,10 @@ def submissions_create():
 
     db.session().add(t)
     db.session().commit()
-
-    #t = Submission(request.form.get("name"))
-
-    #db.session().add(t)
-    #db.session().commit()
   
     return redirect(url_for("submissions_index"))
 
+# viewing information of a single level submission
 @app.route("/submissions/level/<submission_id>", methods=["GET"])
 def submissions_view(submission_id):
     s = Submission.query.get(submission_id)
@@ -70,8 +70,9 @@ def submissions_view(submission_id):
         featureText = 'Unfeature '
         featured = True
 
-    return render_template("submissions/level.html", submission = s, account = u, form=form, comments = Comment.query.filter_by(submission_id=submission_id), comments2 = Comment.get_comments(subid = submission_id), canDelete = canDelete, hasComments = hasComments, canFeature = canFeature, featureText = featureText, featured = featured)
+    return render_template("submissions/level.html", submission = s, account = u, form=form, comments2 = Comment.get_comments(subid = submission_id), canDelete = canDelete, hasComments = hasComments, canFeature = canFeature, featureText = featureText, featured = featured)
 
+# deleting a level submission
 @app.route("/submissions/level/<submission_id>", methods=["POST"])
 @login_required
 def submissions_delete(submission_id):
@@ -82,6 +83,7 @@ def submissions_delete(submission_id):
         db.session.commit()
         return redirect(url_for('index'))
 
+# setting a level to featured/unfeatured
 @app.route("/submissions/feature/<submission_id>", methods=["POST"])
 @login_required
 def submissions_feature(submission_id):

@@ -27,19 +27,3 @@ class Submission(Base):
             response.append(row[0])
 
         return response[0]
-
-    #@staticmethod
-    #def find_submission():
-        #stmt = text("SELECT * FROM Submission WHERE id = 1")
-        #res = db.engine.execute(stmt)
-        #return res;
-        #response = []
-        #for row in res:
-        #    response.append(row[0])
-
-        #return response[0]
-
-#    @staticmethod
-#    def delete_submission(id):
-#        stmt = text("DELETE FROM Submission WHERE id = 1")
-#        db.engine.execute(stmt)
