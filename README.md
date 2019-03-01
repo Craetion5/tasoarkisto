@@ -33,4 +33,4 @@ Foorumilla voi tarkastella käyttäjien postaamia tasoja, ja sisäänkirjautunee
 * kirjautumisen tarkistamisen toteuttaminen järkevämmin
 * käyttäjille omat sivut tasojen listaamisen lisäksi
 * tasojen ja käyttäjien listaamisen lisäksi etsiminen hakusanoilla
-* erillisen pelisovelluksen tasokoodien jakamisen sijaan nettisivustolle voisi koodata javascript-pelin johon luoduissa tasopostauksissa käyttäjät voisivat suoraan pelata kyseisiä tasoja
+* erillisen pelisovelluksen tasokoodien jakamisen sijaan nettisivustolle voisi koodata javascript-pelin jota varten luoduissa tasopostauksissa käyttäjät voisivat suoraan pelata kyseisiä tasoja
